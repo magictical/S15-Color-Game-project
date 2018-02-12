@@ -1,0 +1,20 @@
+body {
+  background-color: #232323;
+}
+.square {
+  width: 30%;
+  padding-bottom: 30%;
+  background: purple;
+  margin: 1.66%;
+  float: left;
+}
+h1 {
+  color: white;
+  margin: 0 auto;
+}
+
+#container {
+  /* 중앙정렬 앞 인자 좌우 뒷 인자는 상하 margin 지정 */
+  margin: 0 auto;
+  max-width: 600px;
+}
