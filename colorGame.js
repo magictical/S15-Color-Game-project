@@ -28,10 +28,20 @@ for(var i = 0; i < square.length; i++) {
       var pickedColor =this.style.backgroundColor;
       if(pickedColor === targetColor) {
         messageDisplay.textContent = "Correct!";
+        //나머지 square도 모두 같은색으로 바꾼다.
+        changeColor(pickedColor);
+
       } else {
         //답이 틀린경우 해당 square를 없앤다.
         this.style.backgroundColor = "#232323";
         messageDisplay.textContent = "Try Again";
       }
   });
+}
+
+//정답일때 모든 square 색을 정답색으로 변경
+function changeColor(pickedColor) {
+  for(var i = 0; i < color.length; i++) {
+    square[i].style.backgroundColor = pickedColor;
+  }
 }
