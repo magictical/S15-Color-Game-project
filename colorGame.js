@@ -28,7 +28,10 @@ for(var i = 0; i < square.length; i++) {
       if(pickedColor === targetColor) {
         alert("Correct!");
       } else {
-        alert("Wrong");
+        //답이 틀린경우 해당 square를 없앤다.
+        this.style.backgroundColor = "#232323";
+
+        //틀린경우 tray again 출력
       }
   });
 }
