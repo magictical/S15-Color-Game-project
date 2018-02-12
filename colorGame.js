@@ -1,1 +1,15 @@
-console.log("connected!");
+var colors = [
+  "rgb(255, 0, 0)",
+  "rgb(255, 255, 0)",
+  "rgb(0, 255, 0)",
+  "rgb(0, 255, 255)",
+  "rgb(0, 0, 255)",
+  "rgb(255, 0, 255)",
+];
+//모든 square 선택
+var square = document.querySelectorAll(".square");
+// for 문으로 iterate하며 color 부여
+for(var i = 0; i < square.length; i++) {
+  //파폭에서는 background가 적동안함 backgroundColor를 사용하자!
+  square[i].style.backgroundColor = colors[i];
+}
