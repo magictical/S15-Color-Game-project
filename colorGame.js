@@ -20,4 +20,15 @@ displayRGB.textContent = targetColor;
 for(var i = 0; i < square.length; i++) {
   //파폭에서는 background가 적동안함 backgroundColor를 사용하자!
   square[i].style.backgroundColor = colors[i];
+
+  //각배열에 eventListener추가
+  square[i].addEventListener("click", function() {
+      //클릭하면 해당 배열의 RGB값을 리턴
+      var pickedColor =this.style.backgroundColor;
+      if(pickedColor === targetColor) {
+        alert("Correct!");
+      } else {
+        alert("Wrong");
+      }
+  });
 }
