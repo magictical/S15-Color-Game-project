@@ -8,6 +8,14 @@ var colors = [
 ];
 //모든 square 선택
 var square = document.querySelectorAll(".square");
+
+// the RGB value will be displayed on h1
+var targetColor = colors[3];
+//select span in h1 by id
+var displayRGB = document.getElementById("colorDisplay");
+//set RGB value in the span
+displayRGB.textContent = targetColor;
+
 // for 문으로 iterate하며 color 부여
 for(var i = 0; i < square.length; i++) {
   //파폭에서는 background가 적동안함 backgroundColor를 사용하자!
