@@ -21,9 +21,8 @@ var easyBtn = document.querySelector("#easyBtn");
 var hardBtn = document.querySelector("#hardBtn");
 
 easyBtn.addEventListener("click", function() {
-  easyBtn.classList.add("changeBtnColor");
-  hardBtn.classList.remove("changeBtnColor");
-  h1Display.style.background = "#232323";
+  easyBtn.classList.add("selectedBtnColor");
+  hardBtn.classList.remove("selectedBtnColor");
   numSquares = 3;
   //colors 배열내 RGB 3개생성 및 targetColor 생성
   colors = generateRandomColors(numSquares);
@@ -39,9 +38,8 @@ easyBtn.addEventListener("click", function() {
   }
 });
 hardBtn.addEventListener("click", function() {
-  hardBtn.classList.add("changeBtnColor");
-  easyBtn.classList.remove("changeBtnColor");
-  h1Display.style.background = "#232323";
+  hardBtn.classList.add("selectedBtnColor");
+  easyBtn.classList.remove("selectedBtnColor");
   numSquares = 6;
   //colors 배열내 RGB 3개생성 및 targetColor 생성
   colors = generateRandomColors(numSquares);
@@ -60,7 +58,7 @@ newColorbtn.addEventListener("click", function() {
   colors = generateRandomColors(numSquares);
   displayRGB.textContent = targetColor;
   //change h1's background color
-  h1Display.style.background = "#232323";
+  newColorbtn.classList.toggle("selectedBtnColor");
   // for 문으로 iterate하며 color 부여
   for(var i = 0; i < square.length; i++) {
     //파폭에서는 background가 적동안함 backgroundColor를 사용하자!
