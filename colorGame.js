@@ -20,43 +20,60 @@ var h1Display = document.querySelector("h1");
 var easyBtn = document.querySelector("#easyBtn");
 var hardBtn = document.querySelector("#hardBtn");
 
-easyBtn.addEventListener("click", function() {
-  easyBtn.classList.add("selectedBtnColor");
-  hardBtn.classList.remove("selectedBtnColor");
-  messageDisplay.textContent = "";
-  // init backgroundColor
-  h1Display.style.backgroundColor = "#4682b4";
-  numSquares = 3;
-  //colors 배열내 RGB 3개생성 및 targetColor 생성
-  colors = generateRandomColors(numSquares);
-  // targetColor h1에 디스플레이
-  displayRGB.textContent = targetColor;
-  //display generated colors
-  for(var i = 0; i < 6; i++) {
-    if(i < 3) {
-      square[i].style.backgroundColor = colors[i];
-    } else {
-      square[i].style.display = "none";
-    }
-  }
-});
-hardBtn.addEventListener("click", function() {
-  hardBtn.classList.add("selectedBtnColor");
-  easyBtn.classList.remove("selectedBtnColor");
-  messageDisplay.textContent = "";
-  // init backgroundColor
-  h1Display.style.backgroundColor = "#4682b4";
-  numSquares = 6;
-  //colors 배열내 RGB 3개생성 및 targetColor 생성
-  colors = generateRandomColors(numSquares);
-  // targetColor h1에 디스플레이
-  displayRGB.textContent = targetColor;
-  //display generated colors
-  for(var i = 0; i < 6; i++) {
-    square[i].style.backgroundColor = colors[i];
-    square[i].style.display = "block";
-  }
-});
+//set modeBtn class to the var
+var modeButtons = document.querySelectorAll(".modeBtn");
+
+//effect for giving color on and off on the mode-buttons
+for(var i = 0; i < modeButtons.length; i++) {
+  mode[i].addEventListener("click", function() {
+    //remove color on the buttons
+    modeButtons[0].classList.remove(".selectedBtnColor");
+    modeButtons[1].classList.remove(".selectedBtnColor");
+    //apply color on the button
+    modeButtons[i].classList.add(".selectedBtnColor");
+  })
+
+
+}
+
+
+// easyBtn.addEventListener("click", function() {
+//   easyBtn.classList.add("selectedBtnColor");
+//   hardBtn.classList.remove("selectedBtnColor");
+//   messageDisplay.textContent = "";
+//   // init backgroundColor
+//   h1Display.style.backgroundColor = "#4682b4";
+//   numSquares = 3;
+//   //colors 배열내 RGB 3개생성 및 targetColor 생성
+//   colors = generateRandomColors(numSquares);
+//   // targetColor h1에 디스플레이
+//   displayRGB.textContent = targetColor;
+//   //display generated colors
+//   for(var i = 0; i < 6; i++) {
+//     if(i < 3) {
+//       square[i].style.backgroundColor = colors[i];
+//     } else {
+//       square[i].style.display = "none";
+//     }
+//   }
+// });
+// hardBtn.addEventListener("click", function() {
+//   hardBtn.classList.add("selectedBtnColor");
+//   easyBtn.classList.remove("selectedBtnColor");
+//   messageDisplay.textContent = "";
+//   // init backgroundColor
+//   h1Display.style.backgroundColor = "#4682b4";
+//   numSquares = 6;
+//   //colors 배열내 RGB 3개생성 및 targetColor 생성
+//   colors = generateRandomColors(numSquares);
+//   // targetColor h1에 디스플레이
+//   displayRGB.textContent = targetColor;
+//   //display generated colors
+//   for(var i = 0; i < 6; i++) {
+//     square[i].style.backgroundColor = colors[i];
+//     square[i].style.display = "block";
+//   }
+// });
 
 
 //set listener to new Colors btn
