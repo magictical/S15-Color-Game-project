@@ -11,6 +11,8 @@ var displayRGB = document.getElementById("colorDisplay");
 displayRGB.textContent = targetColor;
 
 var messageDisplay = document.getElementById("message");
+//select var for h1
+var h1Display = document.querySelector("h1");
 
 // for 문으로 iterate하며 color 부여
 for(var i = 0; i < square.length; i++) {
@@ -26,6 +28,7 @@ for(var i = 0; i < square.length; i++) {
         messageDisplay.textContent = "Correct!";
         //나머지 square도 모두 같은색으로 바꾼다.
         changeColor(colors);
+        h1Display.style.backgroundColor = pickedColor;
 
       } else {
         //답이 틀린경우 해당 square를 없앤다.
