@@ -31,6 +31,7 @@ newColorbtn.addEventListener("click", function() {
         var pickedColor =this.style.backgroundColor;
         if(pickedColor === targetColor) {
           messageDisplay.textContent = "Correct!";
+          newColorbtn.textContent = "Play Again?"
           //나머지 square도 모두 같은색으로 바꾼다.
           changeColor(colors);
           h1Display.style.backgroundColor = pickedColor;
@@ -57,6 +58,7 @@ for(var i = 0; i < square.length; i++) {
       var pickedColor =this.style.backgroundColor;
       if(pickedColor === targetColor) {
         messageDisplay.textContent = "Correct!";
+        newColorbtn.textContent = "Play Again?"
         //나머지 square도 모두 같은색으로 바꾼다.
         changeColor(colors);
         h1Display.style.backgroundColor = pickedColor;
