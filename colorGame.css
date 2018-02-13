@@ -69,6 +69,8 @@ button {
   letter-spacing: 1px;
   /* fontsize - inherit */
   font-size: inherit;
+  /* fade effect on the button */
+  transition: all 0.3s;
 }
 button:hover {
   color: white;
