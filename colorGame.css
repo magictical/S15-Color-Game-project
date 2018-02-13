@@ -49,7 +49,7 @@ h1 {
 }
 #container {
   /* 중앙정렬 앞 인자 좌우 뒷 인자는 상하 margin 지정 */
-  margin: 0 auto;
+  margin: 20px auto;
   max-width: 600px;
 }
 
