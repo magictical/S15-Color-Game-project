@@ -22,19 +22,38 @@ var hardBtn = document.querySelector("#hardBtn");
 easyBtn.addEventListener("click", function() {
   easyBtn.classList.add("changeBtnColor");
   hardBtn.classList.remove("changeBtnColor");
+  h1Display.style.background = "#232323";
   //colors 배열내 RGB 3개생성 및 targetColor 생성
   colors = generateRandomColors(3);
   // targetColor h1에 디스플레이
   displayRGB.textContent = targetColor;
-  // 4번째 square부터 숨김
-  for (var i = 3; i < 6; i++) {
-    square[i].style.display = "none";
+  //display generated colors
+  for(var i = 0; i < 6; i++) {
+    if(i < 3) {
+      square[i].style.backgroundColor = colors[i];
+    } else {
+      square[i].style.display = "none";
+    }
   }
-})
+  // 4번째 square부터 숨김
+  // for (var i = 3; i < 6; i++) {
+  //   square[i].style.display = "none";
+  // }
+});
 hardBtn.addEventListener("click", function() {
   hardBtn.classList.add("changeBtnColor");
   easyBtn.classList.remove("changeBtnColor");
-})
+  h1Display.style.background = "#232323";
+  //colors 배열내 RGB 3개생성 및 targetColor 생성
+  colors = generateRandomColors(6);
+  // targetColor h1에 디스플레이
+  displayRGB.textContent = targetColor;
+  //display generated colors
+  for(var i = 0; i < 6; i++) {
+    square[i].style.backgroundColor = colors[i];
+    square[i].style.display = "block";
+  }
+});
 
 
 //set listener to new Colors btn
@@ -47,6 +66,7 @@ newColorbtn.addEventListener("click", function() {
   for(var i = 0; i < square.length; i++) {
     //파폭에서는 background가 적동안함 backgroundColor를 사용하자!
     square[i].style.backgroundColor = colors[i];
+    square[i].style.display = "block";
 
     //각배열에 eventListener추가
     square[i].addEventListener("click", function() {
