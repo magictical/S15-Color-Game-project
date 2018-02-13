@@ -56,36 +56,9 @@ function reset() {
 
 //set listener to new Colors btn
 newColorbtn.addEventListener("click", function() {
-  //init message
-  this.textContent ="New Color";
-  colors = generateRandomColors(numSquares);
-  // init backgroundColor
-  h1Display.style.backgroundColor = "#4682b4";
-  messageDisplay.textContent = "";
-  displayRGB.textContent = targetColor;
-  // for 문으로 iterate하며 color 부여
-  for(var i = 0; i < square.length; i++) {
-    //파폭에서는 background가 적동안함 backgroundColor를 사용하자!
-    square[i].style.backgroundColor = colors[i];
-    //각배열에 eventListener추가
-    square[i].addEventListener("click", function() {
-        //클릭하면 해당 배열의 RGB값을 리턴
-        var pickedColor =this.style.backgroundColor;
-        if(pickedColor === targetColor) {
-          messageDisplay.textContent = "Correct!";
-          newColorbtn.textContent = "Play Again?"
-          //나머지 square도 모두 같은색으로 바꾼다.
-          changeColor(colors);
-          h1Display.style.backgroundColor = pickedColor;
+  //reset game
+  reset();
 
-        } else {
-          //답이 틀린경우 해당 square를 없앤다.
-          this.style.backgroundColor = "#232323";
-          messageDisplay.textContent = "Try Again";
-        }
-    });
-  }
-});
 
 
 
