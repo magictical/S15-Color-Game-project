@@ -48,6 +48,12 @@ h1 {
   text-align: center;
   color: black;
 }
+/* setting a space btw message(Correct/Try Again)*/
+#message {
+  /* 20% width space(line a box) for the span -  id:message  */
+  display: inline-block;
+  width: 20%;
+}
 /* 버튼옵션 */
 button {
   /* no border */
