@@ -69,7 +69,7 @@ button {
   /* fontsize - inherit */
   font-size: inherit;
 }
-button :hover {
+button:hover {
   color: white;
   background: steelblue;
 }
