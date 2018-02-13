@@ -12,7 +12,10 @@ h1 {
   color: white;
   margin: 0 auto;
 }
-
+/* 클래스 생성 - 버튼클릭시 색 바꾸기 */
+.changeBtnColor {
+  background: blue;
+}
 #container {
   /* 중앙정렬 앞 인자 좌우 뒷 인자는 상하 margin 지정 */
   margin: 0 auto;
