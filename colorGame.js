@@ -18,9 +18,18 @@ var h1Display = document.querySelector("h1");
 //set EasyBtn to var
 var easyBtn = document.querySelector("#easyBtn");
 var hardBtn = document.querySelector("#hardBtn");
+
 easyBtn.addEventListener("click", function() {
   easyBtn.classList.add("changeBtnColor");
   hardBtn.classList.remove("changeBtnColor");
+  //colors 배열내 RGB 3개생성 및 targetColor 생성
+  colors = generateRandomColors(3);
+  // targetColor h1에 디스플레이
+  displayRGB.textContent = targetColor;
+  // 4번째 square부터 숨김
+  for (var i = 3; i < 6; i++) {
+    square[i].style.display = "none";
+  }
 })
 hardBtn.addEventListener("click", function() {
   hardBtn.classList.add("changeBtnColor");
@@ -102,7 +111,7 @@ function generateRandomColors(numColor) {
     arr.push(randomColor());
   }
   //select random element in the array
-  targetColor = arr[Math.floor(Math.random() * 6)];
+  targetColor = arr[Math.floor(Math.random() * numColor)];
   //return array
   return arr;
 }
