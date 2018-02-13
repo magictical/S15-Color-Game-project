@@ -1,5 +1,9 @@
 body {
   background-color: #232323;
+  /* 마진갭없애기 */
+  margin: 0;
+  /* 폰트 Montserrat, Avenir변경 */
+  font-family: "Montserrat", Avenir;
 }
 .square {
   width: 30%;
@@ -8,7 +12,23 @@ body {
   margin: 1.66%;
   float: left;
 }
+
+/* colorDisplay 폰트크기 200% */
+#colorDisplay {
+  font-size: 200%;
+}
 h1 {
+  /* 중앙정렬 */
+  text-align: center;
+  /* 색 steelblue */
+  background: steelblue;
+  /* 폰트웨이트 - nomal */
+  font-weight: normal;
+  /* 대문자로변경 */
+  text-transform: uppercase;
+  /* line-height:  주기 1.1 */
+  line-height: 1.1;
+  /* padding 위아래로 2주기 */
   color: white;
   margin: 0 auto;
 }
