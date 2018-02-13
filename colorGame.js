@@ -61,6 +61,8 @@ hardBtn.addEventListener("click", function() {
 
 //set listener to new Colors btn
 newColorbtn.addEventListener("click", function() {
+  //init message
+  this.textContent ="New Color";
   colors = generateRandomColors(numSquares);
   // init backgroundColor
   h1Display.style.backgroundColor = "#4682b4";
