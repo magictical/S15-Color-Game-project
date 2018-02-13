@@ -48,3 +48,18 @@ h1 {
   text-align: center;
   color: black;
 }
+/* 버튼옵션 */
+button {
+  /* no border */
+  border: none;
+  /* no backgound*/
+  background: none;
+  /* height to 100% (will take all height of the space) */
+  height: 100%;
+  /* color to steelblue */
+  color: steelblue;
+  /* apply space btw letter 1px */
+  letter-spacing: 1px;
+  /* fontsize - inherit */
+  font-size: inherit;
+}
