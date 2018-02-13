@@ -12,69 +12,47 @@ var displayRGB = document.getElementById("colorDisplay");
 displayRGB.textContent = targetColor;
 //set new coolor btn to var
 var newColorbtn = document.querySelector("#newGameBtn");
-
 var messageDisplay = document.getElementById("message");
 //select var for h1
 var h1Display = document.querySelector("h1");
-//set EasyBtn to var
-var easyBtn = document.querySelector("#easyBtn");
-var hardBtn = document.querySelector("#hardBtn");
-
 //set modeBtn class to the var
 var modeButtons = document.querySelectorAll(".modeBtn");
-
 //effect for giving color on and off on the mode-buttons
 for(var i = 0; i < modeButtons.length; i++) {
-  mode[i].addEventListener("click", function() {
+  modeButtons[i].addEventListener("click", function() {
     //remove color on the buttons
-    modeButtons[0].classList.remove(".selectedBtnColor");
-    modeButtons[1].classList.remove(".selectedBtnColor");
+    modeButtons[0].classList.remove("selectedBtnColor");
+    modeButtons[1].classList.remove("selectedBtnColor");
     //apply color on the button
-    modeButtons[i].classList.add(".selectedBtnColor");
-  })
-
-
+    this.classList.add("selectedBtnColor");
+    //use ternary operator
+    // condition ? expr1(if true) : expr2(else)
+    this.textContent === "Easy" ? numSquares =3: numSquares = 6;
+    reset();
+  });
 }
 
-
-// easyBtn.addEventListener("click", function() {
-//   easyBtn.classList.add("selectedBtnColor");
-//   hardBtn.classList.remove("selectedBtnColor");
-//   messageDisplay.textContent = "";
-//   // init backgroundColor
-//   h1Display.style.backgroundColor = "#4682b4";
-//   numSquares = 3;
-//   //colors 배열내 RGB 3개생성 및 targetColor 생성
-//   colors = generateRandomColors(numSquares);
-//   // targetColor h1에 디스플레이
-//   displayRGB.textContent = targetColor;
-//   //display generated colors
-//   for(var i = 0; i < 6; i++) {
-//     if(i < 3) {
-//       square[i].style.backgroundColor = colors[i];
-//     } else {
-//       square[i].style.display = "none";
-//     }
-//   }
-// });
-// hardBtn.addEventListener("click", function() {
-//   hardBtn.classList.add("selectedBtnColor");
-//   easyBtn.classList.remove("selectedBtnColor");
-//   messageDisplay.textContent = "";
-//   // init backgroundColor
-//   h1Display.style.backgroundColor = "#4682b4";
-//   numSquares = 6;
-//   //colors 배열내 RGB 3개생성 및 targetColor 생성
-//   colors = generateRandomColors(numSquares);
-//   // targetColor h1에 디스플레이
-//   displayRGB.textContent = targetColor;
-//   //display generated colors
-//   for(var i = 0; i < 6; i++) {
-//     square[i].style.backgroundColor = colors[i];
-//     square[i].style.display = "block";
-//   }
-// });
-
+//add reset function
+function reset() {
+  // reset settings
+  colors = generateRandomColors(numSquares);
+  h1Display.style.backgroundColor = "steelblue";
+  newColorbtn.textContent ="New Color";
+  messageDisplay.textContent = "";
+  displayRGB.textContent = targetColor;
+  // for 문으로 iterate하며 color 부여
+  for(var i = 0; i < square.length; i++) {
+    //파폭에서는 background가 적동안함 backgroundColor를 사용하자!
+    //easy일경우 3개의 RGB hard일경우 6개이므로 colors 3개일때(easymod)와
+    //square는 항상 6개이므로 이를 비교해서 display 유무를 결정할 수 있다.
+    if(colors[i]) {
+      square[i].style.backgroundColor = colors[i];
+      square[i].style.display = "block";
+    }else {
+      square[i].style.display = "none";
+    }
+  }
+}
 
 //set listener to new Colors btn
 newColorbtn.addEventListener("click", function() {
