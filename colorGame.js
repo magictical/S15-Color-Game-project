@@ -1,15 +1,10 @@
-var colors = [
-  "rgb(255, 0, 0)",
-  "rgb(255, 255, 0)",
-  "rgb(0, 255, 0)",
-  "rgb(0, 255, 255)",
-  "rgb(0, 0, 255)",
-  "rgb(255, 0, 255)",
-];
+//generate random color
+var colors = generateRandomColors(6);
+
 //모든 square 선택
 var square = document.querySelectorAll(".square");
 // the RGB value will be displayed on h1
-var targetColor = colors[3];
+var targetColor;
 //select span in h1 by id
 var displayRGB = document.getElementById("colorDisplay");
 //set RGB value in the span
@@ -26,10 +21,11 @@ for(var i = 0; i < square.length; i++) {
   square[i].addEventListener("click", function() {
       //클릭하면 해당 배열의 RGB값을 리턴
       var pickedColor =this.style.backgroundColor;
+      console.log(pickedColor);
       if(pickedColor === targetColor) {
         messageDisplay.textContent = "Correct!";
         //나머지 square도 모두 같은색으로 바꾼다.
-        changeColor(pickedColor);
+        changeColor(colors);
 
       } else {
         //답이 틀린경우 해당 square를 없앤다.
@@ -41,7 +37,30 @@ for(var i = 0; i < square.length; i++) {
 
 //정답일때 모든 square 색을 정답색으로 변경
 function changeColor(pickedColor) {
-  for(var i = 0; i < color.length; i++) {
-    square[i].style.backgroundColor = pickedColor;
+  for(var i = 0; i < colors.length; i++) {
+    square[i].style.backgroundColor = targetColor;
   }
+}
+
+//create random colors, put them into the array and get targetColor
+function generateRandomColors(numColor) {
+  //array 생성 numColor 크기만큼
+  var arr = [];
+  //color object 생성?
+  for(var i = 0; i < numColor; i++) {
+    //get randomColor and push into array
+    arr.push(randomColor());
+  }
+  //select random element in the array
+  targetColor = arr[Math.floor(Math.random() * 6)];
+  //return array
+  return arr;
+}
+//create random color based on RGB
+function randomColor() {
+  var red = Math.floor(Math.random() * 256);
+  var green = Math.floor(Math.random() * 256);
+  var blue = Math.floor(Math.random() * 256);
+
+  return "rgb("+ red + ", " + green + ", " + blue + ")";
 }
