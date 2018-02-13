@@ -20,6 +20,8 @@ var h1Display = document.querySelector("h1");
 newColorbtn.addEventListener("click", function() {
   colors = generateRandomColors(6);
   displayRGB.textContent = targetColor;
+  //change h1's background color
+  h1Display.style.background = "#232323";
   // for 문으로 iterate하며 color 부여
   for(var i = 0; i < square.length; i++) {
     //파폭에서는 background가 적동안함 backgroundColor를 사용하자!
