@@ -23,6 +23,8 @@ var hardBtn = document.querySelector("#hardBtn");
 easyBtn.addEventListener("click", function() {
   easyBtn.classList.add("selectedBtnColor");
   hardBtn.classList.remove("selectedBtnColor");
+  // init backgroundColor
+  h1Display.style.backgroundColor = "#4682b4";
   numSquares = 3;
   //colors 배열내 RGB 3개생성 및 targetColor 생성
   colors = generateRandomColors(numSquares);
@@ -40,6 +42,8 @@ easyBtn.addEventListener("click", function() {
 hardBtn.addEventListener("click", function() {
   hardBtn.classList.add("selectedBtnColor");
   easyBtn.classList.remove("selectedBtnColor");
+  // init backgroundColor
+  h1Display.style.backgroundColor = "#4682b4";
   numSquares = 6;
   //colors 배열내 RGB 3개생성 및 targetColor 생성
   colors = generateRandomColors(numSquares);
@@ -56,6 +60,8 @@ hardBtn.addEventListener("click", function() {
 //set listener to new Colors btn
 newColorbtn.addEventListener("click", function() {
   colors = generateRandomColors(numSquares);
+  // init backgroundColor
+  h1Display.style.backgroundColor = "#4682b4";
   displayRGB.textContent = targetColor;
   //change h1's background color
   newColorbtn.classList.toggle("selectedBtnColor");
@@ -93,7 +99,7 @@ for(var i = 0; i < square.length; i++) {
   //각배열에 eventListener추가
   square[i].addEventListener("click", function() {
       //클릭하면 해당 배열의 RGB값을 리턴
-      var pickedColor =this.style.backgroundColor;
+      var pickedColor = this.style.backgroundColor;
       if(pickedColor === targetColor) {
         messageDisplay.textContent = "Correct!";
         newColorbtn.textContent = "Play Again?"
