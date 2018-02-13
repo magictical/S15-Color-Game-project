@@ -11,6 +11,8 @@ body {
   background: purple;
   margin: 1.66%;
   float: left;
+  /* set border-radius */
+  border-radius: 50%;
 }
 
 /* colorDisplay 폰트크기 200% */
