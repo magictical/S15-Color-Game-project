@@ -16,6 +16,11 @@ body {
   /* all / backgound차이점 - all인경우 모든 경우에 fade적용
   backgound는 backgound가 변경될때만 */
   transition: background 0.6s;
+  /*browser friendly options */
+  /* for safari */
+  -webkit-transition: backgound;
+  /* for firefox */
+  -moz-transition: backgound;
 }
 
 /* colorDisplay 폰트크기 200% */
