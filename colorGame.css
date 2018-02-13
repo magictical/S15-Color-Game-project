@@ -1,5 +1,9 @@
 body {
   background-color: #232323;
+  /* 마진갭없애기 */
+  margin: 0;
+  /* 폰트 Montserrat, Avenir변경 */
+  font-family: "Montserrat", Avenir;
 }
 .square {
   width: 30%;
@@ -7,15 +11,45 @@ body {
   background: purple;
   margin: 1.66%;
   float: left;
+  /* set border-radius */
+  border-radius: 50%;
+  /* all / backgound차이점 - all인경우 모든 경우에 fade적용
+  backgound는 backgound가 변경될때만 */
+  transition: background 0.6s;
+  /*browser friendly options */
+  /* for safari */
+  -webkit-transition: backgound;
+  /* for firefox */
+  -moz-transition: backgound;
+}
+
+/* colorDisplay 폰트크기 200% */
+#colorDisplay {
+  font-size: 200%;
 }
 h1 {
+  /* 중앙정렬 */
+  text-align: center;
+  /* 색 steelblue */
+  background: steelblue;
+  /* 폰트웨이트 - nomal */
+  font-weight: normal;
+  /* 대문자로변경 */
+  text-transform: uppercase;
+  /* line-height:  주기 1.1 */
+  line-height: 1.1;
+  /* padding 위아래로 2주기 */
   color: white;
   margin: 0 auto;
 }
-
+/* 클래스 생성 - 버튼클릭시 색 바꾸기 */
+.selectedBtnColor {
+  color: white;
+  background: steelblue;
+}
 #container {
   /* 중앙정렬 앞 인자 좌우 뒷 인자는 상하 margin 지정 */
-  margin: 0 auto;
+  margin: 20px auto;
   max-width: 600px;
 }
 
@@ -24,4 +58,33 @@ h1 {
   height: 30px;
   text-align: center;
   color: black;
+}
+/* setting a space btw message(Correct/Try Again)*/
+#message {
+  /* 20% width space(line a box) for the span -  id:message  */
+  display: inline-block;
+  width: 20%;
+}
+/* 버튼옵션 */
+button {
+  /* no border */
+  border: none;
+  /* no backgound*/
+  background: none;
+  /* height to 100% (will take all height of the space) */
+  height: 100%;
+  /* color to steelblue */
+  color: steelblue;
+  /* apply space btw letter 1px */
+  letter-spacing: 1px;
+  /* fontsize - inherit */
+  font-size: inherit;
+  /* fade effect on the button */
+  transition: all 0.3s;
+  /* no outline */
+  outline: none;
+}
+button:hover {
+  color: white;
+  background: steelblue;
 }
