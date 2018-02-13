@@ -68,8 +68,6 @@ newColorbtn.addEventListener("click", function() {
   h1Display.style.backgroundColor = "#4682b4";
   messageDisplay.textContent = "";
   displayRGB.textContent = targetColor;
-  //change h1's background color
-  newColorbtn.classList.toggle("selectedBtnColor");
   // for 문으로 iterate하며 color 부여
   for(var i = 0; i < square.length; i++) {
     //파폭에서는 background가 적동안함 backgroundColor를 사용하자!
