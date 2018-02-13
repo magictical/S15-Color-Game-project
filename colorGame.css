@@ -33,7 +33,7 @@ h1 {
   margin: 0 auto;
 }
 /* 클래스 생성 - 버튼클릭시 색 바꾸기 */
-.changeBtnColor {
+.selectedBtnColor {
   background: blue;
 }
 #container {
@@ -68,4 +68,8 @@ button {
   letter-spacing: 1px;
   /* fontsize - inherit */
   font-size: inherit;
+}
+button :hover {
+  color: white;
+  background: steelblue;
 }
