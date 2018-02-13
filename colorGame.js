@@ -15,6 +15,18 @@ var newColorbtn = document.querySelector("#newGameBtn");
 var messageDisplay = document.getElementById("message");
 //select var for h1
 var h1Display = document.querySelector("h1");
+//set EasyBtn to var
+var easyBtn = document.querySelector("#easyBtn");
+var hardBtn = document.querySelector("#hardBtn");
+easyBtn.addEventListener("click", function() {
+  easyBtn.classList.add("changeBtnColor");
+  hardBtn.classList.remove("changeBtnColor");
+})
+hardBtn.addEventListener("click", function() {
+  hardBtn.classList.add("changeBtnColor");
+  easyBtn.classList.remove("changeBtnColor");
+})
+
 
 //set listener to new Colors btn
 newColorbtn.addEventListener("click", function() {
