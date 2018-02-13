@@ -81,6 +81,8 @@ button {
   font-size: inherit;
   /* fade effect on the button */
   transition: all 0.3s;
+  /* no outline */
+  outline: none;
 }
 button:hover {
   color: white;
