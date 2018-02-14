@@ -1,11 +1,10 @@
 var numSquares = 6;
 //generate random color
-var colors = generateRandomColors(6);
-
-//모든 square 선택
-var square = document.querySelectorAll(".square");
+var colors = [];
 // the RGB value will be displayed on h1
 var targetColor;
+//모든 square 선택
+var square = document.querySelectorAll(".square");
 //select span in h1 by id
 var displayRGB = document.getElementById("colorDisplay");
 //set RGB value in the span
@@ -17,20 +16,61 @@ var messageDisplay = document.getElementById("message");
 var h1Display = document.querySelector("h1");
 //set modeBtn class to the var
 var modeButtons = document.querySelectorAll(".modeBtn");
-//effect for giving color on and off on the mode-buttons
-for(var i = 0; i < modeButtons.length; i++) {
-  modeButtons[i].addEventListener("click", function() {
-    //remove color on the buttons
-    modeButtons[0].classList.remove("selectedBtnColor");
-    modeButtons[1].classList.remove("selectedBtnColor");
-    //apply color on the button
-    this.classList.add("selectedBtnColor");
-    //use ternary operator
-    // condition ? expr1(if true) : expr2(else)
-    this.textContent === "Easy" ? numSquares =3: numSquares = 6;
-    reset();
-  });
+
+init();
+
+function init() {
+  reset();
+  //effect for giving color on and off on the mode-buttons
+  for(var i = 0; i < modeButtons.length; i++) {
+    modeButtons[i].addEventListener("click", function() {
+      //remove color on the buttons
+      modeButtons[0].classList.remove("selectedBtnColor");
+      modeButtons[1].classList.remove("selectedBtnColor");
+      //apply color on the button
+      this.classList.add("selectedBtnColor");
+      //use ternary operator
+      // condition ? expr1(if true) : expr2(else)
+      this.textContent === "Easy" ? numSquares =3: numSquares = 6;
+      reset();
+    });
+  }
+
+  // for 문으로 각 square interation
+  for(var i = 0; i < square.length; i++) {
+    //각배열에 eventListener추가
+    square[i].addEventListener("click", function() {
+        //클릭하면 해당 Square의 RGB값을 리턴
+        var pickedColor = this.style.backgroundColor;
+        if(pickedColor === targetColor) {
+          messageDisplay.textContent = "Correct!";
+          newColorbtn.textContent = "Play Again?"
+          //정답일떄 나머지 square도 모두 같은색으로 바꾼다.
+          changeColor(colors);
+          h1Display.style.backgroundColor = pickedColor;
+        } else {
+          //답이 틀린경우 해당 square를 없앤다.
+          this.style.backgroundColor = "#232323";
+          messageDisplay.textContent = "Try Again";
+        }
+    });
+  }
 }
+
+// //effect for giving color on and off on the mode-buttons
+// for(var i = 0; i < modeButtons.length; i++) {
+//   modeButtons[i].addEventListener("click", function() {
+//     //remove color on the buttons
+//     modeButtons[0].classList.remove("selectedBtnColor");
+//     modeButtons[1].classList.remove("selectedBtnColor");
+//     //apply color on the button
+//     this.classList.add("selectedBtnColor");
+//     //use ternary operator
+//     // condition ? expr1(if true) : expr2(else)
+//     this.textContent === "Easy" ? numSquares =3: numSquares = 6;
+//     reset();
+//   });
+// }
 
 //add reset function
 function reset() {
@@ -60,32 +100,29 @@ newColorbtn.addEventListener("click", function() {
   reset();
 });
 
-
-
-
-// for 문으로 iterate하며 color 부여
-for(var i = 0; i < square.length; i++) {
-  //파폭에서는 background가 적동안함 backgroundColor를 사용하자!
-  square[i].style.backgroundColor = colors[i];
-
-  //각배열에 eventListener추가
-  square[i].addEventListener("click", function() {
-      //클릭하면 해당 배열의 RGB값을 리턴
-      var pickedColor = this.style.backgroundColor;
-      if(pickedColor === targetColor) {
-        messageDisplay.textContent = "Correct!";
-        newColorbtn.textContent = "Play Again?"
-        //나머지 square도 모두 같은색으로 바꾼다.
-        changeColor(colors);
-        h1Display.style.backgroundColor = pickedColor;
-
-      } else {
-        //답이 틀린경우 해당 square를 없앤다.
-        this.style.backgroundColor = "#232323";
-        messageDisplay.textContent = "Try Again";
-      }
-  });
-}
+// // for 문으로 iterate하며 color 부여
+// for(var i = 0; i < square.length; i++) {
+//   //파폭에서는 background가 적동안함 backgroundColor를 사용하자!
+//   square[i].style.backgroundColor = colors[i];
+//
+//   //각배열에 eventListener추가
+//   square[i].addEventListener("click", function() {
+//       //클릭하면 해당 배열의 RGB값을 리턴
+//       var pickedColor = this.style.backgroundColor;
+//       if(pickedColor === targetColor) {
+//         messageDisplay.textContent = "Correct!";
+//         newColorbtn.textContent = "Play Again?"
+//         //나머지 square도 모두 같은색으로 바꾼다.
+//         changeColor(colors);
+//         h1Display.style.backgroundColor = pickedColor;
+//
+//       } else {
+//         //답이 틀린경우 해당 square를 없앤다.
+//         this.style.backgroundColor = "#232323";
+//         messageDisplay.textContent = "Try Again";
+//       }
+//   });
+// }
 
 //정답일때 모든 square 색을 정답색으로 변경
 function changeColor(pickedColor) {
