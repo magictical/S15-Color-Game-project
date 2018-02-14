@@ -21,28 +21,9 @@ init();
 
 function init() {
   reset();
-
   setupButtons();
+  setupCondition();
 
-  // for 문으로 각 square interation
-  for(var i = 0; i < square.length; i++) {
-    //각배열에 eventListener추가
-    square[i].addEventListener("click", function() {
-        //클릭하면 해당 Square의 RGB값을 리턴
-        var pickedColor = this.style.backgroundColor;
-        if(pickedColor === targetColor) {
-          messageDisplay.textContent = "Correct!";
-          newColorbtn.textContent = "Play Again?"
-          //정답일떄 나머지 square도 모두 같은색으로 바꾼다.
-          changeColor(colors);
-          h1Display.style.backgroundColor = pickedColor;
-        } else {
-          //답이 틀린경우 해당 square를 없앤다.
-          this.style.backgroundColor = "#232323";
-          messageDisplay.textContent = "Try Again";
-        }
-    });
-  }
 }
 
 //setup for buttons
@@ -63,7 +44,28 @@ function setupButtons() {
   }
 }
 
-
+// 조건에따라 user input과 square의 RGB를 비교
+function setupCondition() {
+  // for 문으로 각 square interation
+  for(var i = 0; i < square.length; i++) {
+    //각배열에 eventListener추가
+    square[i].addEventListener("click", function() {
+        //클릭하면 해당 Square의 RGB값을 리턴
+        var pickedColor = this.style.backgroundColor;
+        if(pickedColor === targetColor) {
+          messageDisplay.textContent = "Correct!";
+          newColorbtn.textContent = "Play Again?"
+          //정답일떄 나머지 square도 모두 같은색으로 바꾼다.
+          changeColor(colors);
+          h1Display.style.backgroundColor = pickedColor;
+        } else {
+          //답이 틀린경우 해당 square를 없앤다.
+          this.style.backgroundColor = "#232323";
+          messageDisplay.textContent = "Try Again";
+        }
+    });
+  }
+}
 
 //add reset function
 function reset() {
