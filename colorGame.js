@@ -21,20 +21,8 @@ init();
 
 function init() {
   reset();
-  //effect for giving color on and off on the mode-buttons
-  for(var i = 0; i < modeButtons.length; i++) {
-    modeButtons[i].addEventListener("click", function() {
-      //remove color on the buttons
-      modeButtons[0].classList.remove("selectedBtnColor");
-      modeButtons[1].classList.remove("selectedBtnColor");
-      //apply color on the button
-      this.classList.add("selectedBtnColor");
-      //use ternary operator
-      // condition ? expr1(if true) : expr2(else)
-      this.textContent === "Easy" ? numSquares =3: numSquares = 6;
-      reset();
-    });
-  }
+
+  setupButtons();
 
   // for 문으로 각 square interation
   for(var i = 0; i < square.length; i++) {
@@ -56,6 +44,26 @@ function init() {
     });
   }
 }
+
+//setup for buttons
+function setupButtons() {
+  //effect for giving color on and off on the mode-buttons
+  for(var i = 0; i < modeButtons.length; i++) {
+    modeButtons[i].addEventListener("click", function() {
+      //remove color on the buttons
+      modeButtons[0].classList.remove("selectedBtnColor");
+      modeButtons[1].classList.remove("selectedBtnColor");
+      //apply color on the button
+      this.classList.add("selectedBtnColor");
+      //use ternary operator
+      // condition ? expr1(if true) : expr2(else)
+      this.textContent === "Easy" ? numSquares =3: numSquares = 6;
+      reset();
+    });
+  }
+}
+
+
 
 //add reset function
 function reset() {
